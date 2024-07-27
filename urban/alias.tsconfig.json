@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@constants": ["src/constants/index"],
+      "@dtos": ["src/dtos/index"],
+      "@entities": ["src/entities/index"],
+      "@guards": ["src/guards/index"],
+      "@modules": ["src/modules/index"],
+      "@migrations": ["src/migrations/index"]
+    }
+  }
+}
