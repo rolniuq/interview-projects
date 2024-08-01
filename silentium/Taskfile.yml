@@ -1,0 +1,56 @@
+version: '3'
+
+tasks:
+  run:test:
+    desc: 'Run al tests'
+    cmds:
+      - npm run test
+    preconditions:
+      - sh: |
+          if ! command -v npm &> /dev/null
+          then
+            echo "npm could not be found. Please install Node.js and npm."
+            exit 1
+          fi
+
+  run:ios:
+    desc: 'Run the iOS application'
+    cmds:
+      - npm run ios
+    preconditions:
+      - sh: |
+          if ! command -v npm &> /dev/null
+          then
+            echo "npm could not be found. Please install Node.js and npm."
+            exit 1
+          fi
+      - sh: |
+          if ! command -v xcodebuild &> /dev/null
+          then
+            echo "xcodebuild could not be found. Please install Xcode."
+            exit 1
+          fi
+
+  run:android:
+    desc: 'Run the Android application'
+    cmds:
+      - npm run android
+    preconditions:
+      - sh: |
+          if ! command -v npm &> /dev/null
+          then
+            echo "npm could not be found. Please install Node.js and npm."
+            exit 1
+          fi
+      - sh: |
+          if ! command -v adb &> /dev/null
+          then
+            echo "adb could not be found. Please install Android SDK."
+            exit 1
+          fi
+      - sh: |
+          if ! command -v emulator &> /dev/null
+          then
+            echo "emulator could not be found. Please install Android Studio."
+            exit 1
+          fi
